@@ -4,6 +4,7 @@ import calculatorRoutes from "./public/js/calculatorRoutes.js";
 const app = express()
 const port = 3000
 
+
 app.use('/', express.static("public"));
 app.use('/calculator', calculatorRoutes);
 

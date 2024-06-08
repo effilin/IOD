@@ -9,12 +9,11 @@
     </div>
 </body>
 <script>
-  let num1 = 2;
-  let num2 = 4;
+    
+ let num1 = 3;
+ let num2 = 2;
   fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
   .then(response => response.json())
-  .then(data => {
-document.getElementById("result").innerHTML = data.result;
-})
+  .then(data => {document.getElementById("result").innerHTML = data.result})
 </script>
 </html>
