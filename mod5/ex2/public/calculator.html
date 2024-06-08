@@ -4,8 +4,11 @@
         <title>Calculator Example</title>
     </head>
     <body>
-    <div>Result
+    <div>Result   
         <span id="result"></span>
+        <span id="result2"></span>
+        <span id="result3"></span>
+        <span id="result4"></span>
     </div>
 </body>
 <script>
@@ -15,5 +18,18 @@
   fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
   .then(response => response.json())
   .then(data => {document.getElementById("result").innerHTML = data.result})
+
+  fetch(`/calculator/subtract?num1=${num1}&num2=${num2}`)
+  .then(response => response.json())
+  .then(data => {document.getElementById("result2").innerHTML = data.result})
+
+  fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
+  .then(response => response.json())
+  .then(data => {document.getElementById("result3").innerHTML = data.result})
+
+  fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+  .then(response => response.json())
+  .then(data => {document.getElementById("result4").innerHTML = data.result})
+
 </script>
 </html>
