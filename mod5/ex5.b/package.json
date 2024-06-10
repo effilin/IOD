@@ -1,6 +1,7 @@
 {
-  "name": "m5lab_expressapp",
+  "name": "mod5ex1",
   "version": "1.0.0",
+  "description": "mod5 ex1",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -11,6 +12,5 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2"
-  },
-  "description": ""
+  }
 }
