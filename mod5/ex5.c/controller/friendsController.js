@@ -65,9 +65,7 @@ const updateMe = (req, res) => {
     let friendId = req.params.id;
     let updatedFriend = req.body;
 
-
     if(friends.includes(parseInt(friendId))) { 
-        //const result = friends.filter((person) => person.id == friendId)
         friends.push(updatedFriend);
 
     res.json({result: 'Updated friend with ID ' + friendId, data: updatedFriend})

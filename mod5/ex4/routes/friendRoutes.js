@@ -92,12 +92,16 @@ router.put('/:id', (req, res) => {
     console.log(friendId);
     console.log(updatedFriend);
 
-    
+    if(idsCurrent.includes(parseInt(friendId))) { 
+        const result = friends.filter((person) => person.id == friendId)
+        friends.push(newFriend);
+
+    res.json({result: 'Updated friend with ID ' + friendId, data: updatedFriend})
+    }
 
     // Replace the old friend data for friendId with the new data from updatedFriend
 
     // Modify this response with the updated friend, or a 404 if not found
-    res.json({result: 'Updated friend with ID ' + friendId, data: updatedFriend})
 })
 
 export default router;
