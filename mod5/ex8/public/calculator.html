@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Calculator Example</title>
+    </head>
+    <body>
+    <div>Result  
+        
+        <input type="number" id="firstNum">
+        <input type="number" id="secondNum">
+        <input type="submit" value="Add" onclick="addIt()">
+        <input type="submit" value="Subtract" onclick="subIt()">
+        <input type="submit" value="Multiply" onclick="multIt()">
+        <input type="submit" value="Divide" onclick="divIt()">
+        <span id="result"></span>
+   
+    </div>
+</body>
+<script>
+  
+ function addIt() {
+     let num1 = document.getElementById('firstNum').value;
+     let num2 = document.getElementById('secondNum').value;
+     console.log(num1, num2);
+     fetch(`/calculator/add?num1=${num1}&num2=${num2}`)
+     .then(response => response.json())
+     .then(data => {document.getElementById("result").innerHTML = data.result})
+ };
+ 
+
+ function subIt() {
+     let num1 = document.getElementById('firstNum').value;
+     let num2 = document.getElementById('secondNum').value;
+     fetch(`/calculator/subtract?num1=${num1}&num2=${num2}`)
+     .then(response => response.json())
+     .then(data => {document.getElementById("result").innerHTML = data.result})
+ };
+
+ function multIt() {
+  let num1 = document.getElementById('firstNum').value;
+  let num2 = document.getElementById('secondNum').value;
+  fetch(`/calculator/multiply?num1=${num1}&num2=${num2}`)
+  .then(response => response.json())
+  .then(data => {document.getElementById("result").innerHTML = data.result})
+ };
+
+ function divIt() {
+  let num1 = document.getElementById('firstNum').value;
+  let num2 = document.getElementById('secondNum').value;
+  fetch(`/calculator/divide?num1=${num1}&num2=${num2}`)
+  .then(response => response.json())
+  .then(data => {document.getElementById("result").innerHTML = data.result})
+ };
+
+</script>
+</html>
