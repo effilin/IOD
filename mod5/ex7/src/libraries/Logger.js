@@ -1,9 +1,10 @@
 class Logger {
-    constructor(sum) {
+    constructor(sum, id) {
         this.sum = sum;
+        this.id = id;
     }
-    log = (sum) => {
-        console.log(`[Calculator : ${sum}]`)
+    log = (sum, id) => {
+        console.log(`[Calculator :${id} : ${sum}]`)
     }
 }
 

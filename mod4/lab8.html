@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Moment DateTime Format</title>
+<!-- reference Moment.js library -->
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.mi
+n.js"></script>
+</head>
+<body>
+<h2>Moment Date</h2>
+<!-- container for Moment.js output -->
+<div id="displayMoment"></div>
+<h2>My Birthday</h2>
+<!-- container for JavaScript Date output -->
+<div id="displayJsDate"></div>
+<div>
+    <p id="text1"></p>
+</div>
+<script type="text/javascript">
+(function() {
+// instantiate a moment object
+let nowMoment = moment();
+// instantiate a JavaScript Date object
+let nowDate = new Date('1990-03-16');
+// display value of moment object in #displayMoment div
+let eDisplayMoment = document.getElementById('displayMoment');
+eDisplayMoment.innerHTML = nowMoment;
+// display value of Date object in #displayJsDate div
+let eDisplayDate = document.getElementById('displayJsDate');
+eDisplayDate.innerHTML = nowDate;
+})();
+
+function myBirthday(year, month, day) {
+    const now = moment();
+    const myBirthday = moment(year, month, day);
+    const howOldYear = now.getFullYear()-myBirthday.getFullYear();
+    const monthsOld = (howOldYear*12)+(now.getMonth() + 1);
+    const daysOld = (monthsOld*30)+(now.getDate());
+    document.getElementById('text1').innerHTML = `I am ${howOldYear} years old, ${monthsOld} months old and ${daysOld}`;
+    return old;
+}
+myBirthday(1990, 3, 16);
+
+</script>
+</body>
+</html>

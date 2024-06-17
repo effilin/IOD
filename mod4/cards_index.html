@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab4</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+            body {
+              font-family : Arial, Helvetica , sans-serif ;
+              background-color : #e3f2fd;
+              }
+             .card {
+              padding: 10px;
+              }
+            .card-title {
+              font-weight : 600;
+              font-size : 3em;
+              padding: 0 0 10px 0;
+            }
+            .card-description {
+             font-weight : 400;
+             font-size : 2em
+            }
+
+        </style>
+    </head>
+    <body>
+        <nav class="navbar bg-sucess p-3">
+            <a class="nav-link" href="cards.html">Lab: part 4</a>
+            <a class="nav-link" href="lab5.html">Lab: part 5</a>
+            <a class="nav-link" href="lab7.html">Lab: part 7</a>
+        </nav>
+
+        <template id="card-template" >
+            <div class="card">
+                <div class="card-body" >
+                    <div class="card-title" ></div>
+                    <div class="card-text" ></div>
+                    </div>
+                 </div>
+         </template >
+         <template id="art-template" >
+            <div class="artCard ">
+                    <h4 class="artist"></h4>
+                    <h6 class="card-title" ></h6>
+                    <img class="card-pic" >
+                </div>
+         </template >
+
+       <div id="card-list"></div>
+
+       <script>
+
+        const data = [
+            {name: 'bob', age: 23},
+            {name: 'alice', age: 39}];
+            
+        const artists = [
+                {name: "Van Gogh",
+                    portfolio:[
+                         {title: "portrait", url:"https://collectionapi.metmuseum.org/api/collection/v1/iiif/436532/1671316/main-image"},
+                         {title: "sky", url:"https://mymodernmet.com/wp/wp-content/uploads/2020/11/White-house-night-van-goh-worldwide-2.jpg" },
+                    ]},
+                {name:'Leonardo da Vinci',
+                    portfolio: [
+                        {title: 'Mona Lisa', url: 'https://www.britannica.com/topic/Mona-Lisa-painting'},
+                        {title: 'The Last Supper', url: 'https://en.wikipedia.org/wiki/The_Last_Supper_(Leonardo)'},
+                                ]},
+                {name:'Vermeer',
+                    portfolio:[
+                        {title: 'Girl with a Pearl Earring', url:'https://www.britannica.com/biography/Johannes-Vermeer'},
+                        {title: 'View of Houses in Delft', url: 'https://www.britannica.com/biography/Johannes-Vermeer'},
+                    ]
+                }
+            ]
+
+
+    function addCardSimple(array) {
+
+        for(let i=0; i < array.length; i++) {
+   
+           let name = array[i].name;
+           let age = array[i].age;
+           const template = document.getElementById("card-template").content.cloneNode(true)
+             template.querySelector('.card-title').innerText = name
+             template.querySelector('.card-text').innerText = age
+             document.querySelector('#card-list').appendChild(template);
+    }}
+
+    function artistCards(array) {
+        for(let i=0; i < array.length; i++) {
+
+            let artist = array[i].name;
+            let portfolioArt = array[i].portfolio;
+
+            const template = document.getElementById("art-template").content.cloneNode(true);
+            template.querySelector('.artist').innerText = artist
+
+           portfolioArt.forEach((element) => {
+                let title = element.title
+                let pictures = element.url
+                template.querySelector('.card-title').innerText = title
+                template.querySelector('img').src = pictures
+                template.querySelector('img').alt = title
+           })
+        
+             document.querySelector('#card-list').appendChild(template);
+
+        }
+    };
+
+    
+
+
+
+addCardSimple(data);      
+artistCards(artists);
+        
+        
+        </script>
+
+    </body>
+</html>

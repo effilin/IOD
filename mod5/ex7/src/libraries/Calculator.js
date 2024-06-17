@@ -1,6 +1,6 @@
  class Calculator {
     constructor() {
-        this.id = Math.floor(Math.random()+1)
+        this.id = Math.floor(Math.random()*100)
     }
     
     
