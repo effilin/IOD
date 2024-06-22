@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SingleCats from "./singleCat";
 const BigCats = () => {
     const cats = [
@@ -9,18 +10,46 @@ const BigCats = () => {
         { id: 6, name: 'Snow leopard', latinName: 'Panthera uncia', src:'https://s-i.huffpost.com/gen/1360371/images/o-SNOW-LEOPARD-facebook.jpg' },
         { id: 7, name: 'Tiger', latinName: 'Panthera tigris', src:'https://www.rainforesttrust.org/app/uploads/2022/06/India-male-Tiger-by-Ondrej-Prosicky-min.jpg' },
         ];
+
+        const [catsList, setCats] = useState(cats);
+
+        const catItems = catsList.map(cat => (
+            <SingleCats key={cat.id} name={cat.name} src={cat.src} />
+        ))
+
+        const reverseCats = () => {
+            let newCats = [...catsList];
+            newCats.reverse();
+            setCats(newCats);
+        }
+
+        const alphabeticalCats = () => {
+            let newCats = [...catsList];
+            newCats.sort((a, b) => {
+              if(a.name < b.name) {
+                return -1;
+              }
+              if(a.name > b.name) {
+                return 1;
+              }
+              return 0;
+            });
+            setCats(newCats);
+        };
+
+
  return(
     <div className="BigCats componentBox" style={{
         border: "1px solid black",
         backgroundColor: "#3eb489",
         padding:"2vw",
     }}>
-    
-        <ul style={{listStyleType:"none"}}>
-            {cats.map(cat => (
-                <SingleCats key={cat.id} name={cat.name} src={cat.src} />
-            ))}
+        <button onClick={alphabeticalCats}>List Alphabetically</button>
+        <button onClick={reverseCats}>Reverse Order</button>
+        <ul>
+            {catItems}
         </ul>
+
     </div>
  )
 };
