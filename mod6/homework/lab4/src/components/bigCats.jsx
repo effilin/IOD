@@ -18,12 +18,14 @@ const BigCats = () => {
         ))
 
         const reverseCats = () => {
+           
             let newCats = [...catsList];
             newCats.reverse();
             setCats(newCats);
-        }
+        };
 
         const alphabeticalCats = () => {
+            
             let newCats = [...catsList];
             newCats.sort((a, b) => {
               if(a.name < b.name) {
@@ -37,6 +39,22 @@ const BigCats = () => {
             setCats(newCats);
         };
 
+        const panthera =() => {
+            const newCats = catsList.filter((cat) =>  {
+                if ( cat.latinName.includes('Panthera')) {
+                    return true;
+                }
+                return false;
+            });
+           setCats(newCats);
+        
+        };
+
+        const reset = () => {
+            setCats(cats);
+        };
+
+
 
  return(
     <div className="BigCats componentBox" style={{
@@ -44,8 +62,10 @@ const BigCats = () => {
         backgroundColor: "#3eb489",
         padding:"2vw",
     }}>
-        <button onClick={alphabeticalCats}>List Alphabetically</button>
-        <button onClick={reverseCats}>Reverse Order</button>
+        <button style={{margin:'3vw',backgroundColor:"#a28089"}} onClick={alphabeticalCats}>List Alphabetically</button>
+        <button style={{margin:'3vw',backgroundColor:"#a28089"}} onClick={reverseCats}>Reverse Order</button>
+        <button style={{margin:'3vw',backgroundColor:"#a28089"}} onClick={panthera}>Panthera</button>
+        <button style={{margin:'3vw',backgroundColor:"#a28089"}} onClick={reset}>Reset</button>
         <ul>
             {catItems}
         </ul>
