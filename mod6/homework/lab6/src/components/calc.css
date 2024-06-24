@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(36, 43, 30); 
+}
+h1 {
+    background-color: #cad4bf;
+    border-radius: 15rem;
+    width: auto;
+    margin-left: 5vw;
+    text-align: center;
+    color: rgb(124, 121, 118);
+    font-family: "Jersey 10 Charted", monospace, 'Times New Roman', Times, serif;
+}
+#wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 20vw);
+    grid-auto-rows: minmax(100px, auto) repeat(6, 1fr);
+    background-color:#cad4bf;
+    border-radius: 5px;
+    width: 80vw;
+    height: 50vw;
+    margin: 1vw 2vw;  
+   
+}
+#screen {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    background-color: grey;
+    border: 2px, solid black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    padding: 2vw;
+    
+    
+}
+.numBtn {
+    border: 1px solid black;
+    font-weight: 400;
+    margin: 1vw;
+}
+.numBtn:hover {
+    background-color: rgba(224, 101, 183, 0.75);
+}
+#wrapper > button {
+    cursor: pointer;
+   
+}
+
+#submit {
+    grid-row: 5 ;
+    grid-column: 1;
+    width: 8vw;
+    height: 4vw;
+    background-color: rgb(93, 199, 91);
+    border-radius: 5px;
+    margin: 2vw 0 0 4vw;
+}
+#submit:hover {
+    background-color: rgb(194, 226, 159);
+}
+#reset {
+    grid-row: 5 ;
+    grid-column: 2;
+    width: 8vw;
+    height: 4vw;
+    background-color: rgb(93, 199, 91);
+    border-radius: 5px;
+    margin: 2vw 0 0 4vw;
+}
+#reset:hover {
+    background-color: rgb(194, 226, 159);
+}
