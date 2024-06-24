@@ -47,21 +47,25 @@ const reset = () => {
     setOperator('')
     setInputData2('')
     setInputData('')
+    setResult('')
 };
 
 const equals = () => {
     console.log(operator);
     if(operator === "+") {
-        console.log("add")
-        const result = inputData2 + inputData;
+        const result = parseFloat(inputData2) + parseFloat(inputData);
+        setResult(result);
     }else if (operator === "-") {
-        console.log("minus");
+        const result = parseFloat(inputData2) - parseFloat(inputData);
+        setResult(result);
     }else if ( operator === "*") {
-        console.log('multiply');
+        const result = parseFloat(inputData2) * parseFloat(inputData);
+        setResult(result);
     } else if (operator === "/") {
-        console.log('divide');
+        const result = parseFloat(inputData2) / parseFloat(inputData);
+        setResult(result);
     } else{
-        console.log('error');
+        setResult('error');
     }
 };
 
