@@ -4,14 +4,14 @@ if (person.name) {
     return (
         <div className="GreetingParent componentBox">
             <h5>Hello {person.name}!</h5>
-            {person.children}
+            <h2> Welcome back!</h2>
         </div>
     )
 } else {
     return (
     <div className="GreetingParent componentBox">
             <h5>Hello World!</h5>
-            {person.children}
+            <h2>Welcome</h2>
         </div>
     )
 }
