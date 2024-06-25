@@ -14,9 +14,6 @@ const BigCats = () => {
 
         const [catsList, setCats] = useState(cats);
 
-        const catItems = catsList.map(cat => (
-            <SingleCats key={cat.id} name={cat.name} src={cat.src} />
-        ))
 
         const reverseCats = () => {
            
@@ -47,6 +44,7 @@ const BigCats = () => {
                 }
                 return false;
             });
+
            setCats(newCats);
         
         };
@@ -60,8 +58,9 @@ const BigCats = () => {
             console.log(newCat)
             setCats([...catsList, newCat])
         }
-        const handleDelete = () => {
-            
+        const handleDelete = (catId) => {
+            let newCats = [...catsList];
+          newCats.filter( cat => cat.id != catId)
         }
 
 
@@ -84,7 +83,9 @@ const BigCats = () => {
         </div>
         <div>
         <ul>
-            {catItems}
+           {catsList.map(cat => (
+            <SingleCats key={cat.id} name={cat.name} src={cat.src} />
+           ))};
         </ul>
         </div>
 

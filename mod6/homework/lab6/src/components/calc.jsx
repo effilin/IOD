@@ -95,7 +95,7 @@ const equals = () => {
             <button className="numBtn number" onClick={() => makeValue('8')}>8</button>
             <button className="numBtn number" onClick={() => makeValue('9')}>9</button>
             <button className="numBtn operator" onClick={multSign}>*</button>
-            <button className="numBtn number" onClick={() => makeValue('9')}>0</button>
+            <button className="numBtn number" onClick={() => makeValue('0')}>0</button>
             <button className="numBtn operator" onClick={divSign}>/</button>
                  
             
