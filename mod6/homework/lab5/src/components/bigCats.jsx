@@ -58,9 +58,10 @@ const BigCats = () => {
             console.log(newCat)
             setCats([...catsList, newCat])
         }
-        const handleDelete = (catId) => {
-            let newCats = [...catsList];
-          newCats.filter( cat => cat.id != catId)
+        const handleDelete = (id) => {
+          let newCats = [...catsList];
+          let filterResults = newCats.filter( cat => cat.id != id);
+          setCats(filterResults);
         }
 
 
@@ -84,7 +85,7 @@ const BigCats = () => {
         <div>
         <ul>
            {catsList.map(cat => (
-            <SingleCats key={cat.id} name={cat.name} src={cat.src} />
+            <SingleCats key={cat.id} name={cat.name} src={cat.src} handleDelete={handleDelete} />
            ))};
         </ul>
         </div>
