@@ -1,14 +1,14 @@
 
 import './App.css'
-import AppRoutes from '../routes/AppRoutes'
-import Footer from '../components/Footer'
-import NavBar from '../components/NavBar'
+import AppRoutes from '../routes/AppRoutes.jsx'
+import Footer from '../components/Footer.jsx'
+import NavBar from '../components/navBar.jsx'
+
 
 function App() {
 
   return (
     <>
-    
     <NavBar />
       <AppRoutes />
     <Footer/>
