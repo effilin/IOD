@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const useBitcoin = (currency) => {
 
-    const [bitcoinRate, setBitcoinRate] = useState(null);
+    const [bitcoinRate, setBitcoinRate] = useState(currency);
 
     useEffect(() => {
         console.log('updating Bitcoin rate');
