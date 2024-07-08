@@ -33,7 +33,7 @@ export default function Header() {
                         aria-label="menu" 
                         aria-controls="menu-appBar" 
                         aria-haspopup='true' 
-                        sx={{mr:0, display:'block'}}
+                        sx={{mr:0, display:'inline-block'}}
                         onClick={handleMenuOpen}
                         >
                             <MenuIcon />
@@ -52,7 +52,7 @@ export default function Header() {
                         </Menu>
                     </Grid>
                     <Grid item xs={3} sm={3} md={3} lg={3} xl={3}>
-                        <Typography variant='h3' component='div' sx={{display:'inline-block'}}> EscapeApp</Typography>
+                        <Typography variant='h3' component='div' sx={{display:'inline-block', color:`${currentUser.color}`}}> EscapeApp</Typography>
                     </Grid>
                 </Container>
             </Grid>
