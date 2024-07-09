@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Homepage from "../pages/HomePage.jsx"
 import LoginPage from "../pages/LoginPage.jsx";
-import PuzzlePage from "../pages/puzzlePage.jsx";
+import PuzzlePage from "../pages/PuzzlePage.jsx";
+
 
  
  function AppRoutes(props) {

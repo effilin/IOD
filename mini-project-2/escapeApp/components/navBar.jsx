@@ -11,6 +11,7 @@ export default function NavBar() {
                 <ul className='menu' style={{padding: '2vw'}}>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/login">Login</NavLink></li>
+                    <li><NavLink to="/puzzle"> Puzzle Page</NavLink></li>
                 </ul>
               </nav>
     )

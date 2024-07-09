@@ -1,16 +1,24 @@
+import React from "react"; 
 import { useState } from "react";
 import { useUserContext } from "../context/nameContext";
-import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField } from '@mui/material'
+import { Box, Button, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, InputLabel, MenuItem, Paper, Select, Switch, TextField } from '@mui/material'
 
 function LoginForm() {
     const [userName, setUserName] = useState('');
     const [favColor, setFavColor] = useState('');
+    const [userTheme, setUserTheme] = React.useState({
+        blueTheme: true
+    });
     const {currentUser, handleUpdateUser} = useUserContext();
 
     const handleSubmit = () => {
-        handleUpdateUser({name: userName, color: favColor});
+        handleUpdateUser({name: userName, color: favColor, theme: userTheme});
         console.log(`${favColor}, ${userName}`)
         alert(` Welcome ${userName}`);
+    };
+
+    const handleThemeChange = (event) => {
+        setUserTheme({...userTheme, [event.target.name]: event.target.checked})
     }
 
     return (
@@ -35,6 +43,17 @@ function LoginForm() {
                                 </Select>
                                 
                         </FormControl>
+                    </Grid>
+                    <Grid item xl={6} lg={6} md={6} sm={12} xs={12} >
+                        <FormLabel component="legend">Theme Switch</FormLabel>
+                        <FormGroup>
+                            <FormControlLabel control={
+                                <Switch checked={userTheme.synth} onChange={handleThemeChange} name='blueTheme'/>
+                            }
+                            label="Blue Theme"
+                            />
+                        </FormGroup>
+
                     </Grid>
                     <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
                         <Button variant="outlined" onClick={handleSubmit}>Submit</Button>
