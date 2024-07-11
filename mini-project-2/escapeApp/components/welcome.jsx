@@ -7,12 +7,14 @@ export default Welcome = () => {
         return (
             <div> 
                 <h1>Welcome {currentUser.name} </h1>
+                
             </div>
         )
     }
     else {
         <div> 
             <h1>Welcome, Please LogIn</h1>
+        
         </div>
 
     }

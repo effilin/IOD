@@ -1,5 +1,6 @@
 import { Flowerbed } from "../components/flowerbed/flowerBed"
 
+
 export default function PuzzlePage() {
 
     return (
@@ -7,7 +8,7 @@ export default function PuzzlePage() {
         <h1>Puzzle</h1>
 
         <Flowerbed/>
-    
+        
         </div>
     )
 }
