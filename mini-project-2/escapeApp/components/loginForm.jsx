@@ -6,20 +6,16 @@ import { Box, Button, FormControl, FormControlLabel, FormGroup, FormLabel, Grid,
 function LoginForm() {
     const [userName, setUserName] = useState('');
     const [favColor, setFavColor] = useState('');
-    const [userTheme, setUserTheme] = React.useState({
-        blueTheme: true
-    });
+    const [userTheme, setUserTheme] =useState('');
+  
     const {currentUser, handleUpdateUser} = useUserContext();
 
     const handleSubmit = () => {
-        handleUpdateUser({name: userName, color: favColor, theme: userTheme});
+        handleUpdateUser({name: userName, color: favColor});
         console.log(`${favColor}, ${userName}`)
         alert(` Welcome ${userName}`);
     };
 
-    const handleThemeChange = (event) => {
-        setUserTheme({...userTheme, [event.target.name]: event.target.checked})
-    }
 
     return (
         
@@ -45,15 +41,7 @@ function LoginForm() {
                         </FormControl>
                     </Grid>
                     <Grid item xl={6} lg={6} md={6} sm={12} xs={12} >
-                        <FormLabel component="legend">Theme Switch</FormLabel>
-                        <FormGroup>
-                            <FormControlLabel control={
-                                <Switch checked={userTheme.synth} onChange={handleThemeChange} name='blueTheme'/>
-                            }
-                            label="Blue Theme"
-                            />
-                        </FormGroup>
-
+                       
                     </Grid>
                     <Grid item xl={7} lg={7} md={7} sm={12} xs={12}>
                         <Button variant="outlined" onClick={handleSubmit}>Submit</Button>

@@ -1,0 +1,71 @@
+.verticalGrid {
+    margin: 0px;
+}
+
+.head {
+    position: relative;
+    z-index: 1;
+    margin: 4% auto -1% 40%;
+    width: 8.5%;
+    height: 2rem;
+    border: 2px solid blue;
+    background-color: blue;
+    animation-name: headBang;
+    animation-duration: 1000ms;
+}
+
+.head:hover {
+    animation-name: headBang;
+    animation-duration: 1000ms;
+}
+
+.neck {
+    position: relative;
+    height: fit-content;
+    margin: 0% 11% -1% auto;
+    padding: 0;
+}
+
+.body {
+    position: relative;
+    z-index: 1;
+    margin:  0 0 16% 12%;
+    width: 2vw;
+    height: 3vw;
+    border: 2px solid blue;
+    background-color: blue;
+
+}
+
+.armR {
+    position: relative;
+    margin: auto auto 90% 80%;
+    width: fit-content;
+}
+
+.armL {
+    position: relative;
+    margin: auto auto 90% -240%;
+    width: 2%;
+}
+
+
+.torso {
+    position: relative;
+    margin: -2% auto auto 3%;
+}
+
+@keyframes headBang {
+    0% {
+        transform: rotateX(0deg);
+        background-color: blue;
+    }
+    50% {
+        transform: rotateX(20deg);
+        background-color: rgb(26, 147, 196);
+    }
+    100% {
+        transform: rotateX(0deg);
+        background-color: blue;
+    }
+}
