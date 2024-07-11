@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BitcoinReducer } from './bitcoinRatesReducer.js'
+import BitcoinReducer from "./bitcoinRatesReducer";
 
 const currencies = ['USD', 'AUD', 'NZD', 'GBP', 'EUR', 'SGD'];
 
@@ -7,7 +7,7 @@ export default function BitcoinRates() {
 
     const [currency, setCurrency] = useState(currencies[0]);
     
-    const bitcoinRate = BitcoinReducer(currency);
+    const bitcoinResults = BitcoinReducer(currency);
 
     
     const options = currencies.map(curr => <option value={curr} key={curr}>{curr}</option>);
@@ -21,7 +21,7 @@ export default function BitcoinRates() {
             </select>
         </label>
         <p>Selected Currency: {currency}</p>
-        <p>Bitcoin Price: {bitcoinRate}</p>
+        <p>Bitcoin Price: {bitcoinResults.bitcoinRate}</p>
     </div>
 )
 }
