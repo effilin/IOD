@@ -53,5 +53,34 @@
     margin: auto 11% auto auto;
 }
 
+.legContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto 11% auto auto;
+}
+
+.rightLeg {
+    position: relative;
+    padding: 0;
+    width: 2px;
+    height: 2.5vw;
+    border: 2px solid blue;
+    margin: 0% auto auto 47%;
+    background-color: blue;
+
+}
+
+.lightLeg {
+    position: relative;
+    padding: 0;
+    width: 2px;
+    height: 2.5vw;
+    border: 2px solid blue;
+    margin: 0% 47% auto auto;
+    background-color: blue;
+}
 
 

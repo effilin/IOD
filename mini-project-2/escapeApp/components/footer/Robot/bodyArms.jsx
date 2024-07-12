@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material"
 import './robot.css'
 import { useSpring, animated } from "@react-spring/web"
-import { blue, green, red } from "@mui/material/colors"
+import { blue, green } from "@mui/material/colors"
 
 
 export function BodyArms() {
@@ -14,6 +14,16 @@ export function BodyArms() {
             tension: 180,
         }
     }))
+
+    const [colorSpring, colorApi] = useSpring (() => ({
+        from: {backgroundColor: blue[600], transformOrigin: '50'},
+        config:{
+            mass: 5,
+            friction: 12,
+            tension: 180,
+        }
+    }))
+
 
     const [rightArmSpring, rightArmApi] = useSpring(() => ({
         from: {transform: 'rotateZ(0deg)', transformOrigin: 'right', color: green[100]},
@@ -34,6 +44,12 @@ export function BodyArms() {
     }))
 
     const handleClick = () => {
+
+        colorApi.start({
+            from: { backgroundColor: blue[600],},
+            to: { backgroundColor: green[600]}
+        });
+
         torsoApi.start({
             from: { transform: 'rotateY(0deg)', color: blue },
             to: { transform: 'rotateY(360deg)', color: green[600]}
@@ -63,7 +79,7 @@ export function BodyArms() {
             <animated.h4 className="armR" style={{...rightArmSpring}}>*-------</animated.h4>
             
             
-            <div className="body" ></div>
+            <animated.div className="body" style={{...colorSpring}} ></animated.div>
             
             
             <animated.h4 className="armL" style={{...leftArmSpring}}>-------*</animated.h4>

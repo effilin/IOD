@@ -1,13 +1,16 @@
 import { blue, green } from '@mui/material/colors'
 import './robot.css'
 import { animated, useSpring } from '@react-spring/web'
+import { useState } from 'react'
 
 
  export default function HeadNeck () {
 
+    const [toggle, setToggle] = useState(false)
+
    
     const [headBang, api] = useSpring (() => ({
-        from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)'},
+        from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)', borderRadius:'0%',},
         config: {
             mass: 5,
             friction: 12,
@@ -17,9 +20,12 @@ import { animated, useSpring } from '@react-spring/web'
     }))
 
     const handleClick = () => {
+        setToggle(!toggle)
         api.start({
-            from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)'},
-            to: {backgroundColor: green[600], transform: 'rotateZ(360deg)'}
+            from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)', borderRadius:'0'},
+            to: toggle 
+            ? { backgroundColor: green[600], transform: 'rotateZ(360deg)', borderRadius:'40%'} 
+            : { backgroundColor: blue[600], transform: 'rotateZ(360deg)', borderRadius:'0' }
         })
     }
 

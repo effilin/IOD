@@ -3,6 +3,7 @@ import { BodyArms } from "./bodyArms";
 import { animated, useSpring } from '@react-spring/web';
 import './robot.css';
 import HeadNeck from "./headNeck";
+import Legs from "./legs";
 
 export function Robot() {
 
@@ -24,6 +25,7 @@ export function Robot() {
 
             </Grid>
             <BodyArms />
+            <Legs/>
             
         </div>
 
