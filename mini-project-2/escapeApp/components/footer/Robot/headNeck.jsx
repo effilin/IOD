@@ -13,6 +13,7 @@ import { animated, useSpring } from '@react-spring/web'
             friction: 12,
             tension: 180,
         },
+        reverse: true,
     }))
 
     const handleClick = () => {
