@@ -10,8 +10,8 @@ import { animated, useSpring } from '@react-spring/web'
         from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)'},
         config: {
             mass: 5,
-            friction: 120,
-            tension: 80,
+            friction: 12,
+            tension: 180,
         },
     }))
 
