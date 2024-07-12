@@ -10,14 +10,9 @@
     height: 2rem;
     border: 2px solid blue;
     background-color: blue;
-    animation-name: headBang;
-    animation-duration: 1000ms;
+    user-select: none;
 }
 
-.head:hover {
-    animation-name: headBang;
-    animation-duration: 1000ms;
-}
 
 .neck {
     position: relative;
@@ -55,17 +50,3 @@
     margin: -2% auto auto 3%;
 }
 
-@keyframes headBang {
-    0% {
-        transform: rotateX(0deg);
-        background-color: blue;
-    }
-    50% {
-        transform: rotateX(20deg);
-        background-color: rgb(26, 147, 196);
-    }
-    100% {
-        transform: rotateX(0deg);
-        background-color: blue;
-    }
-}

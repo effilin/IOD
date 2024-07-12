@@ -1,22 +1,33 @@
- import './robot.css'
- import { animated } from '@react-spring/web'
+import { blue, green } from '@mui/material/colors'
+import './robot.css'
+import { animated, useSpring } from '@react-spring/web'
 
 
- const HeadNeck = () => {
+ export default function HeadNeck () {
 
    
-    const headBang = useSpring ({
-        from: {x: 0},
-        to:{x: 1},
-    })
+    const [headBang, api] = useSpring (() => ({
+        from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)'},
+        config: {
+            mass: 5,
+            friction: 120,
+            tension: 80,
+        },
+    }))
+
+    const handleClick = () => {
+        api.start({
+            from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)'},
+            to: {backgroundColor: green[600], transform: 'rotateZ(360deg)'}
+        })
+    }
 
 
     return(
-    <animated.div className='head' style={{ transform: useThemeProps.x
-        .to([0,1], [0,60])
-        .to(value => `rotateZ(${value}deg)`)
-    }} >
+    <animated.div className='head' style={{ ...headBang}} onClick={handleClick} >
         <h5 style={{marginTop:'5%', marginBottom:'0'}}>0   0</h5>
     </animated.div>
     )
  }
+
+ 
