@@ -1,7 +1,7 @@
 import{ createTheme } from '@mui/material/styles'
 
 
-export const firstTheme = createTheme ({
+export const synthTheme = createTheme ({
     palette:{
        primary: { main: '#1d0251', contrastText:'#d3d6db' },
        secondary: { main: '#019081', contrastText: '#233b6e' }
