@@ -1,10 +1,11 @@
+import Welcome from "../components/homePage/welcome";
 
 
 function HomePage() {
 
     return (
         <div>
-            <h1>Welcome</h1>
+            <Welcome />
         </div>
     )
 }

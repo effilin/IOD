@@ -8,6 +8,7 @@
     border: 2px solid blue;
     background-color: blue;
     user-select: none;
+    perspective: 1000px;
 }
 
 
@@ -25,6 +26,7 @@
     height: 3vw;
     border: 2px solid blue;
     background-color: blue;
+    perspective: 1000px;
 
 }
 .armR {

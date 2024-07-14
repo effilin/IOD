@@ -10,7 +10,7 @@ import { useState } from 'react'
 
    
     const [headBang, api] = useSpring (() => ({
-        from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)', borderRadius:'0%',},
+        from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)', borderRadius:'0%'},
         config: {
             mass: 5,
             friction: 12,
@@ -20,10 +20,10 @@ import { useState } from 'react'
     }))
 
     const handleClick = () => {
-        setToggle(!toggle)
+        setToggle(toggle)
         api.start({
             from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)', borderRadius:'0'},
-            to: toggle 
+            to: !toggle 
             ? { backgroundColor: green[600], transform: 'rotateZ(360deg)', borderRadius:'40%'} 
             : { backgroundColor: blue[600], transform: 'rotateZ(360deg)', borderRadius:'0' }
         })

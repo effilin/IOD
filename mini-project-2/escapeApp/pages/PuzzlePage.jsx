@@ -1,12 +1,10 @@
-import { Flowerbed } from "../components/flowerbed/flowerBed"
+import { Flowerbed } from "../components/puzzle/flowerBed"
 
 
 export default function PuzzlePage() {
 
     return (
         <div>
-        <h1>Puzzle</h1>
-
         <Flowerbed/>
         
         </div>

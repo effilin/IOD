@@ -1,19 +1,18 @@
 import React from "react"; 
 import { useState } from "react";
 import { useUserContext } from "../context/nameContext";
-import { Box, Button, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, InputLabel, MenuItem, Paper, Select, Switch, TextField } from '@mui/material'
+import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select,  TextField } from '@mui/material'
 
 function LoginForm() {
     const [userName, setUserName] = useState('');
     const [favColor, setFavColor] = useState('');
-    const [userTheme, setUserTheme] =useState('');
+    
   
     const {currentUser, handleUpdateUser} = useUserContext();
 
     const handleSubmit = () => {
-        handleUpdateUser({name: userName, color: favColor});
-        console.log(`${favColor}, ${userName}`)
-        alert(` Welcome ${userName}`);
+        handleUpdateUser({name: userName, color: favColor, robotText:`Hey ${userName}`});
+        console.log(`${favColor}, ${userName}`);
     };
 
 
