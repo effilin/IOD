@@ -9,7 +9,7 @@
     { key:5, id: 'E', color: '#1fe5bd'},
     { key:6, id: 'F', color: '#41a7b3'},
     { key:7, id: 'G', color: '#ca431d'},
-    { key:7, id: 'H', color: '#3a0088'},
+    { key:8, id: 'H', color: '#3a0088'},
     { key:9, id: 'I', color: '#00454a'},
     { key:10, id: 'J', color: '#f66767'},
     { key:11, id: 'K', color: '#57acc5'},
