@@ -1,12 +1,14 @@
 import { useSpring } from "@react-spring/web";
 import { animated } from "@react-spring/web";
 import { useUserContext } from "../../../context/nameContext";
+import { useRobotContext } from "../../../context/robotContext";
 
 
 
 export default function ChatBox() {
 
 const {currentUser, handleUpdateUser} = useUserContext();
+const {robotBlurb, handleUpdateRobot} = useRobotContext();
 
 const animatedText = useSpring ({
     from: {scale: 0, opacity: 0},
@@ -21,6 +23,6 @@ const animatedText = useSpring ({
 
 
 return (
-<animated.h4 style={animatedText}>{currentUser.robotText}</animated.h4> 
+<animated.h4 style={animatedText}>{robotBlurb.blurb}</animated.h4> 
 )
 }

@@ -7,6 +7,7 @@ import { Footer } from '../components/footer/footer';
 import { blueTheme } from '../themes/blueTheme';
 import { ThemeProvider } from '@mui/material/styles';
 import { synthTheme } from '../themes/sythwaveTheme';
+import { RobotProvider } from '../context/robotContext';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <>
     <UserProvider>
       <ThemeProvider theme={synthTheme}>
+        <RobotProvider>
       <Grid container spacing={2}>
         <Grid item xs={12} md={12} xl={12}>
           <Header />
@@ -27,6 +29,7 @@ function App() {
           <Footer />
         </Grid>
       </Grid>
+      </RobotProvider>
       </ThemeProvider>
     </UserProvider> 
     </>

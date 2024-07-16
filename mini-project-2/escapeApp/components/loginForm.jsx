@@ -1,6 +1,7 @@
 import React from "react"; 
 import { useState } from "react";
 import { useUserContext } from "../context/nameContext";
+import { useRobotContext } from "../context/robotContext";
 import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select,  TextField } from '@mui/material'
 
 function LoginForm() {
@@ -9,9 +10,11 @@ function LoginForm() {
     
   
     const {currentUser, handleUpdateUser} = useUserContext();
+    const {robotBlurb, handleUpdateRobot} = useRobotContext();
 
     const handleSubmit = () => {
-        handleUpdateUser({name: userName, color: favColor, robotText:`Hey ${userName}`});
+        handleUpdateUser({name: userName, color: favColor});
+        handleUpdateRobot({blurb:`Hey ${userName}`})
         console.log(`${favColor}, ${userName}`);
     };
 

@@ -1,14 +1,24 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { CardStock } from "../../db/cardstock";
 import './puzzle.css'
-import React ,{ useState } from "react";
+import React ,{ useEffect, useState } from "react";
 import { useSpring } from "@react-spring/web";
 import { animated } from "@react-spring/web";
 
 export default function Cards() {
 
     const [flipped, setFlipped] = useState(Array(CardStock.length).fill(false));
+    const[correctCards, setCorrectCards] = useState(false)
     
+    const CorrectCards = () => {
+        const solution = CardStock.map((card) => card.shouldFlip);
+        return solution.every(index => flipped[index]);
+    }
+
+    useEffect(() => {
+        if(CorrectCards()) {
+            alert( 'you win');
+    }}, [flipped]);
 
     const flipStyle = flipped.map((isFlipped) => 
     useSpring({
@@ -29,6 +39,8 @@ export default function Cards() {
         })
     )
 
+    
+
 
 
     const handleClick = (index) => {
@@ -41,16 +53,16 @@ export default function Cards() {
 
     const myCards = CardStock.map((card, index) =>(
         <Grid item xs={2} key={card.key}>
-        <Card className="flipCard" >
+        <div className="flipCard" >
             <div className="flip-inner">
                 <animated.div className="flip-front" style={{...flipStyle[index], backgroundColor:card.color}} onClick={() => handleClick(index)}>
-                   <Typography variant="h2">{card.id}</Typography>
+                   <Typography variant="h2">{card.front}</Typography>
                 </animated.div>
-                <animated.div style={{...backFlipStyle[index]}} className="flip-back" onClick={() => handleClick(index)}>
-                    <p>back</p>
+                <animated.div style={{...backFlipStyle[index], backgroundColor:card.colorBack}} className="flip-back" onClick={() => handleClick(index)}>
+                    <Typography variant="h2">{card.back}</Typography>
                 </animated.div>
             </div>
-        </Card>
+        </div>
         </Grid>
     ))
 
