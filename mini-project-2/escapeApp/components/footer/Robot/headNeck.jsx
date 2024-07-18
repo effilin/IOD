@@ -1,7 +1,8 @@
-import { blue, green } from '@mui/material/colors'
-import './robot.css'
-import { animated, useSpring } from '@react-spring/web'
-import { useState } from 'react'
+import { blue, green } from '@mui/material/colors';
+import './robot.css';
+import { animated, useSpring } from '@react-spring/web';
+import { useState } from 'react';
+
 
 
  export default function HeadNeck () {
@@ -16,7 +17,6 @@ import { useState } from 'react'
             friction: 12,
             tension: 180,
         },
-        reverse: true,
     }))
 
     const handleClick = () => {
