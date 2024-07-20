@@ -2,7 +2,7 @@
 
  export const CardStock = [
     
-    { key:1,  color: '#ffcc00', colorBack: '#ff6666', front:'T', back:"U", shouldFlip: true},
+    { key:1,  color: '#ffcc00', colorBack: '#fc993c', front:'T', back:"U", shouldFlip: true},
     { key:2,  color: '#ff6666', colorBack: '#e3670c' , front:'S', back:"T", shouldFlip: false},
     { key:3,  color: '#323edd', colorBack: '#a1d76f', front:'E', back:"R", shouldFlip: false},
     { key:4,  color: '#66cccc', colorBack: '#a1d76f', front:'W', back:"T", shouldFlip: true},
