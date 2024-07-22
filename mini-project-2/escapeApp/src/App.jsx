@@ -10,6 +10,7 @@ import { synthTheme } from '../themes/sythwaveTheme';
 import { RobotProvider } from '../context/robotContext';
 
 
+
 function App() {
 
 
@@ -18,6 +19,7 @@ function App() {
     <UserProvider>
       <ThemeProvider theme={synthTheme}>
         <RobotProvider>
+          
       <Grid container spacing={2}>
         <Grid item xs={12} md={12} xl={12}>
           <Header />

@@ -7,7 +7,7 @@ export default  function Welcome() {
 
     if ( currentUser.name === undefined ) {
         return (
-            <h1>Welcome,  Please LogIn </h1>
+            <h1>Welcome,  Please Log-In </h1>
         )
     }
     else  {

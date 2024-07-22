@@ -1,4 +1,5 @@
 import Welcome from "../components/homePage/welcome";
+import Info from "../components/homePage/info";
 
 
 function HomePage() {
@@ -6,6 +7,7 @@ function HomePage() {
     return (
         <div>
             <Welcome />
+            <Info />
         </div>
     )
 }

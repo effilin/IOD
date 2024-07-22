@@ -5,10 +5,10 @@ import { useState } from 'react';
 
 
 
+
  export default function HeadNeck () {
 
-    const [toggle, setToggle] = useState(false);
-
+    const[toggle, setToggle] = useState('false')
    
     const [headBang, api] = useSpring (() => ({
         from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)', borderRadius:'0%'},
@@ -17,16 +17,17 @@ import { useState } from 'react';
             friction: 12,
             tension: 180,
         },
+        reverse: true
     }))
 
     const handleClick = () => {
-        setToggle(toggle ? toggle : !toggle)
-        console.log(toggle)
+        setToggle(!toggle)
         api.start({
             from: {backgroundColor: blue[600], transform: 'rotateZ(0deg)', borderRadius:'0'},
-            to: !toggle 
-            ? {  backgroundColor: green[600], transform: 'rotateZ(360deg)', borderRadius:'40%'} 
-            : { backgroundColor: blue[600], transform: 'rotateZ(360deg)', borderRadius:'0' }
+            to: {  backgroundColor: toggle ? green[600] : blue[600] ,
+                    transform: 'rotateZ(360deg)', 
+                    borderRadius: toggle ? '40%' : '0%'} 
+            
         })
     }
 

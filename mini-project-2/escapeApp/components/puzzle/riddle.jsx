@@ -23,7 +23,7 @@ export default function StarWarsRiddle () {
 
     return(
         <div> 
-           <animated.h2 className="riddle" sx={{colorChange}}>What did yoda say to Luke was eating with his hands? </animated.h2>
+           <animated.h2 className="riddle" sx={{colorChange}}>What did yoda say to Luke when he was eating with his hands? </animated.h2>
         </div>
     )
 }

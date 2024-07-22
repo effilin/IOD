@@ -1,70 +1,43 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { CardStock } from "../../db/cardstock";
-import './puzzle.css'
-import React ,{ useEffect, useState } from "react";
-import { useSpring } from "@react-spring/web";
-import { animated } from "@react-spring/web";
+import './puzzle.css';
+import React ,{  useState } from "react";
+import SingleCard from "./singleCard";
+import { Grid } from "@mui/material";
+import{ useRobotContext} from '../../context/robotContext'
+
+
 
 export default function Cards() {
-
-    const [flipped, setFlipped] = useState(Array(CardStock.length).fill(false));
-    const[correctCards, setCorrectCards] = useState(false);
     
-    const solution = CardStock.map((card) => card.shouldFlip);
-    
-   
+ const [ cards, setCards] = useState(CardStock);
+ const mappedCards = CardStock.map((card) => ({id:card.id, value: card.front, answer: card.answer}));
+ const [ currentCards, setCurrentCards] = useState(mappedCards);
+ const [toggle, setToggle] = useState(false);
+ 
+const {robotBlurb, handleUpdateRobot} = useRobotContext();
 
-    useEffect(() => {
-        if(solution === flipped) {
-            alert( 'you win');
-            setCorrectCards(true)
-    }}, [flipped]);
 
-    const flipStyle = flipped.map((isFlipped) => 
-    useSpring({
-        from:{ opacity: 1 , transform: `perspective(600px) rotateY(0deg)`},
-        to: isFlipped 
-            ? { opacity: 0 , transform: `perspective(600px) rotateY(180deg)`} 
-            : { opacity: 1 , transform: `perspective(600px) rotateY(0deg)`},
-        config:{ mass: 5, tension: 500, friction: 80},
-    }))
+ const  onClick = ( id , value ) => {
+    let newCards = currentCards.map(card => card.id === id ? {...card, value: value}: card )
+    setCurrentCards(newCards);
+    let isCorrect = currentCards.every((card) => card.value === card.answer )
+    console.log(isCorrect)
+    isCorrect ? handleUpdateRobot( {blurb: "Great Job! You Win"}) : null ;
+        
 
-    const backFlipStyle = flipped.map((isFlipped) =>
-    useSpring({
-            from:{ visibility: 'hidden', transform: `perspective(600px) rotateY(0deg)`},
-            to: isFlipped 
-                ? { visibility: 'visible', transform: `perspective(600px) rotateY(1800deg)`} 
-                : { visibility: 'hidden', transform: `perspective(600px) rotateY(0deg)` }, 
-            config:{ mass: 5, tension: 500, friction: 80},
-        })
-    )
+ }
 
-    
+console.log(currentCards);
 
 
 
-    const handleClick = (index) => {
-        const newFlipped = [...flipped];
-         newFlipped[index] = !newFlipped[index];
-        console.log(newFlipped)
-        setFlipped(newFlipped);
-    };
+return(
 
-
-    const myCards = CardStock.map((card, index) =>(
-        <Grid item xs={2} key={card.key}>
-        <div className="flipCard" >
-            <div className="flip-inner">
-                <animated.div className="flip-front" style={{...flipStyle[index], backgroundColor:card.color}} onClick={() => handleClick(index)}>
-                   <Typography variant="h2" sx={{ justifyContent: "center", alignItems: "center"}}>{card.front}</Typography>
-                </animated.div>
-                <animated.div style={{...backFlipStyle[index], backgroundColor:card.colorBack}} className="flip-back" onClick={() => handleClick(index)}>
-                    <Typography variant="h2">{card.back}</Typography>
-                </animated.div>
-            </div>
-        </div>
-        </Grid>
-    ))
-
-    return myCards
+    <Grid container spacing={2} justifyContent='space-around' alignItems='center' >
+        {cards.map(card => (
+               <SingleCard {...card} onClick={onClick}  />
+        ))}
+    </Grid>
+        
+)
 }
