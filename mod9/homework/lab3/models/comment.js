@@ -1,29 +1,29 @@
 const { DataTypes, Model } = require("sequelize");
 let dbConnect = require("../dbConnect");
 const sequelizeInstance = dbConnect.Sequelize;
-class Blog extends Model { }
+class Comment extends Model { }
 // Sequelize will create this table if it doesn't exist on startup
-Blog.init({
+Comment.init({
 id: {
 type: DataTypes.INTEGER, allowNull: false, autoIncrement:
 true, primaryKey: true
 },
-title: {
+comment_author: {
 type: DataTypes.STRING, allowNull: false, required: true
 },
-description: {
-type: DataTypes.STRING, allowNull: false, required: true
+parent_post: {
+type: DataTypes.INTEGER, allowNull: false, required: true
 },
-author: {
+comment_body: {
 type: DataTypes.STRING, allowNull: false, required: true,
 unique: true
 },
-created: {
-type: DataTypes.DATE, allowNull: false, required: true
+likes: {
+type: DataTypes.INTEGER, allowNull: false, required: true
 }},
 {
-sequelize: sequelizeInstance, modelName: 'blogs', 
+sequelize: sequelizeInstance, modelName: 'comments', // uselowercase plural format
 timestamps: true, freezeTableName: true
 }
 )
-module.exports = Blog;
+module.exports = Comment;
