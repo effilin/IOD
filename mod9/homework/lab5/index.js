@@ -7,7 +7,9 @@ const { Server } = require("socket.io");
 
 const server = http.createServer(app);
 const port = 3001; 
-const io = new Server(server);
+const io = new Server(server, {
+    connectionStateRecovery: {}
+});
 
 
 app.get("/", (req, res) => {
@@ -17,6 +19,7 @@ app.get("/", (req, res) => {
 io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
         console.log('message: ' + msg)
+        io.emit('chat message', msg)
     })
 })
 
