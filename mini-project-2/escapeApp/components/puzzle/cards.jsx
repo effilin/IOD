@@ -2,7 +2,7 @@ import { CardStock } from "../../db/cardstock";
 import './puzzle.css';
 import React ,{  useState } from "react";
 import SingleCard from "./singleCard";
-import { Grid } from "@mui/material";
+import { Grid, toggleButtonClasses } from "@mui/material";
 import{ useRobotContext} from '../../context/robotContext'
 
 
@@ -22,9 +22,8 @@ const {robotBlurb, handleUpdateRobot} = useRobotContext();
     setCurrentCards(newCards);
     let isCorrect = currentCards.every((card) => card.value === card.answer )
     console.log(isCorrect)
-    isCorrect ? handleUpdateRobot( {blurb: "Great Job! You Win"}) : null ;
-        
-
+    isCorrect ? handleUpdateRobot( {blurb: "Great Job! You Win"})  : null ;
+    isCorrect ? setToggle(!toggle) : null
  }
 
 console.log(currentCards);

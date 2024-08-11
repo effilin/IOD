@@ -17,7 +17,7 @@ function App() {
   return (
     <>
     <UserProvider>
-      <ThemeProvider theme={synthTheme}>
+      <ThemeProvider theme={blueTheme}>
         <RobotProvider>
           
       <Grid container spacing={2}>

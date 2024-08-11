@@ -1,5 +1,4 @@
 
-
 import './App.css'
 import BitcoinRates from './components/bitcoinRates'
 
