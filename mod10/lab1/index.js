@@ -1,6 +1,8 @@
 import express from "express"; // import the express package
 import friendRoutes from './routes/friendRoutes.js';
 
+require('dotenv').config();
+
 const app = express(); // create a new app
 const port = 3000; // change this to run the app on a different port - usually a 4 digit number
 
